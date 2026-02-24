@@ -148,7 +148,7 @@ export default function HomePage() {
                                         alt="KKW Logo"
                                         width={28}
                                         height={28}
-                                        className="rounded brightness-[2] mix-blend-screen"
+                                        className="rounded object-contain"
                                         priority
                                     />
                                 </div>
@@ -357,8 +357,7 @@ export default function HomePage() {
                                             alt="KKW College - Karmaveer Kakasaheb Wagh Education Society"
                                             width={500}
                                             height={500}
-                                            className="w-full h-full object-contain mix-blend-screen scale-100 sm:scale-110 animate-pulse-glow"
-                                            style={{ filter: 'invert(1) hue-rotate(180deg) brightness(1.7) contrast(1.4)' }}
+                                            className="w-full h-full object-contain scale-100 sm:scale-110 drop-shadow-[0_0_30px_rgba(255,255,255,0.3)]"
                                             priority
                                         />
                                     </div>
