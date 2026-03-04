@@ -1,6 +1,6 @@
 # KKW College B.Tech CSD Notes & Materials 📚
 
-![College Image](https://github.com/Dahire100/CS-Notes/blob/main/kkw.jpeg)
+![College Image](https://github.com/Dahire100/KKW-CSD-Hub/blob/main/public%2Fkkw-logo.png)
 
 ## 🎓 **About This Repository**
 Welcome to the **KKW College Computer Science Repository** – a carefully curated resource hub designed for students pursuing **Computer Science and Engineering (CSE)**. Here, you'll find:
