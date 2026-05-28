@@ -116,9 +116,9 @@ Navigate through the resources for each semester:
 ## 📘 **SEM 8**
 | **Course Name**                              | **📄 Notes**                           | **📜 Question Papers**                   |
 |---------------------------------------------|----------------------------------------|------------------------------------------|
-| Software Architecture and Design Patterns   | [📘 View Notes](https://drive.google.com/your-file-link) | [📜 View Papers](https://drive.google.com/your-file-link) |
-| Department Elective Course VI               | [📘 View Notes](https://drive.google.com/your-file-link) | [📜 View Papers](https://drive.google.com/your-file-link) |
-| Internship                                  | [📘 View Notes](https://drive.google.com/your-file-link) | -                                          |
+| Software Architecture and Design Patterns   | [📘 View Notes](https://drive.google.com/drive/folders/1_CGg_OoGBPVccbaugFOein5zIxpE6odD?usp=drive_link) | [📜 View Papers](https://drive.google.com/drive/folders/1mXxN3fluEF6A19m51DpWqnNHF7X4erHl?usp=drive_link) |
+| Department Elective Course VI(Blockchain)               | [📘 View Notes](https://drive.google.com/drive/folders/1_FlUv4sKNmOvTXKqX4mg4GRnHHEbAiWW?usp=drive_link) | [📜 View Papers](https://drive.google.com/drive/folders/1yWc-FFajwgBAoPJw_pOsv0Nvap78pYZW?usp=drive_link) |
+| Internship                                  | [📘 View Notes](https://drive.google.com/drive/folders/15m2egvF0vgLv6FejLwc6puxVXGHAZ9x2?usp=drive_link) | -                                          |
 
 
 🔗 **University Exam Paper**: [📥 Download Here](https://sppuquestionpapers.com/be/information-technology-engineering/semester-8)
