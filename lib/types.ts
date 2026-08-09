@@ -1,8 +1,10 @@
 export interface Subject {
     name: string;
-    notesLink?: string;
-    papersLink?: string;
+    notesUrl?: string;
+    papersUrl?: string;
+    // ... keep existing fields
 }
+
 
 export interface Semester {
     id: number;
@@ -12,8 +14,10 @@ export interface Semester {
 }
 
 export interface Practical {
-    name: string;
-    link: string;
+    title: string;
+    subject: string;
+    url: string;
+    // ... keep existing fields (e.g. name, repo, etc.)
 }
 
 export interface Contributor {
