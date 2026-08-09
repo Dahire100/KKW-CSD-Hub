@@ -14,7 +14,7 @@ import {
 } from '@/lib/constants';
 import { Semester, Subject } from '@/lib/types';
 import AnimatedBackground from '@/components/AnimatedBackground';
-import { Typewriter, AnimatedCounter, Reveal, Magnetic } from '@/components/InteractiveComponents';
+import { Typewriter, AnimatedCounter, Reveal } from '@/components/InteractiveComponents';
 import { SearchModal, ContributeModal } from '@/components/Modals';
 
 export default function HomePage() {
@@ -133,10 +133,11 @@ export default function HomePage() {
                 style={{ width: `${scrollProgress}%` }}
             />
 
-            {/* Navigation */}
+            {/* Navigation - Linear Minimalist Style with ONLY Brand Logo & Search Bar */}
             <nav className="fixed top-0 left-0 right-0 z-50 glass-nav transition-all duration-300 border-b border-white/5">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex items-center justify-between h-16">
+                        {/* Brand Logo */}
                         <div className="flex items-center gap-2 sm:gap-3 group cursor-pointer" onClick={() => scrollToSection('home')}>
                             <div className="relative">
                                 <div className={`absolute inset-0 bg-gradient-to-r ${activeTheme.gradient} rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-200`}></div>
@@ -156,91 +157,17 @@ export default function HomePage() {
                             </span>
                         </div>
 
-                        {/* Desktop Nav */}
-                        <div className="hidden md:flex items-center gap-4">
+                        {/* Centered Search Bar */}
+                        <div className="flex-1 max-w-md mx-4">
                             <button
                                 onClick={() => setSearchOpen(true)}
-                                className="flex items-center gap-2 px-3 py-1.5 bg-slate-800/50 hover:bg-slate-800 border border-slate-700 hover:border-blue-500/50 rounded-lg text-sm text-slate-400 hover:text-white transition-all group mr-2 w-48"
+                                className="w-full flex items-center gap-2 px-3 py-1.5 bg-slate-800/50 hover:bg-slate-800 border border-slate-700 hover:border-blue-500/50 rounded-lg text-sm text-slate-400 hover:text-white transition-all group cursor-pointer"
                             >
-                                <Search className="w-4 h-4" />
-                                <span>Search...</span>
-                                <span className="ml-auto text-xs bg-slate-900 px-1.5 py-0.5 rounded border border-slate-700 text-slate-500 group-hover:text-slate-400">Ctrl K</span>
-                            </button>
-
-                            <div className="flex items-center space-x-1">
-                                {['Home', 'Semesters', 'Practicals', 'Feedback', 'About'].map((item) => (
-                                    <button
-                                        key={item}
-                                        onClick={() => scrollToSection(item.toLowerCase())}
-                                        className="px-3 lg:px-4 py-2 rounded-full text-sm font-medium text-slate-300 hover:text-white transition-all duration-300 hover:bg-white/10 border border-transparent hover:border-white/10 relative overflow-hidden group"
-                                    >
-                                        <span className="relative z-10">{item}</span>
-                                    </button>
-                                ))}
-
-                                <button
-                                    onClick={cycleTheme}
-                                    className={`p-2 rounded-full transition-all hover:scale-110 active:scale-95 text-white/80 hover:text-white bg-gradient-to-br ${activeTheme.gradient} bg-opacity-10 hover:shadow-lg`}
-                                    title={`Current Theme: ${activeTheme.name}`}
-                                >
-                                    <Palette className="w-5 h-5" />
-                                </button>
-
-                                <button
-                                    onClick={() => setUploadOpen(true)}
-                                    className="p-2 text-blue-400 hover:text-blue-300 hover:bg-blue-500/10 rounded-full transition-all hover:scale-110 active:scale-95"
-                                    title="Upload / Contribute"
-                                >
-                                    <UploadCloud className="w-5 h-5" />
-                                </button>
-
-                                <a
-                                    href={REPO_LINK}
-                                    target="_blank"
-                                    rel="noreferrer"
-                                    className="ml-2 p-2 text-slate-400 hover:text-white transition-all hover:rotate-12 hover:scale-110 hover:bg-white/10 rounded-full"
-                                >
-                                    <Github className="w-5 h-5" />
-                                </a>
-                            </div>
-                        </div>
-
-                        {/* Mobile menu button */}
-                        <div className="md:hidden flex items-center gap-2">
-                            <button onClick={cycleTheme} className="p-2 rounded-md text-slate-300 hover:bg-white/10 hover:text-white transition-colors">
-                                <Palette className="w-6 h-6" />
-                            </button>
-                            <button onClick={() => setUploadOpen(true)} className="p-2 rounded-md text-blue-400 hover:bg-blue-500/10 transition-colors">
-                                <UploadCloud className="w-6 h-6" />
-                            </button>
-                            <button onClick={() => setSearchOpen(true)} className="p-2 rounded-md text-slate-300 hover:bg-white/10 hover:text-white transition-colors">
-                                <Search className="w-6 h-6" />
-                            </button>
-                            <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="p-2 rounded-md text-slate-300 hover:bg-white/10 hover:text-white transition-colors">
-                                {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                                <Search className="w-4 h-4 text-slate-400" />
+                                <span>Search notes, modules, manuals...</span>
+                                <span className="ml-auto text-xs bg-slate-900 px-1.5 py-0.5 rounded border border-slate-700 text-slate-500 group-hover:text-slate-400 font-mono">Ctrl K</span>
                             </button>
                         </div>
-                    </div>
-                </div>
-
-                {/* Mobile Nav */}
-                <div className={`md:hidden absolute w-full glass-nav border-b border-slate-700 transition-all duration-300 ease-in-out ${mobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
-                    <div className="px-4 pt-2 pb-6 space-y-2">
-                        {['Home', 'Semesters', 'Practicals', 'Feedback', 'About'].map((item) => (
-                            <button
-                                key={item}
-                                onClick={() => scrollToSection(item.toLowerCase())}
-                                className="block w-full text-left px-4 py-4 rounded-xl text-base font-medium text-slate-300 hover:text-white hover:bg-white/5 border border-transparent active:bg-white/10 transition-all"
-                            >
-                                {item}
-                            </button>
-                        ))}
-                        <button
-                            onClick={() => { setUploadOpen(true); setMobileMenuOpen(false); }}
-                            className="w-full text-left px-4 py-4 rounded-xl text-base font-medium text-blue-400 hover:text-blue-300 hover:bg-blue-500/10 border border-transparent active:bg-blue-500/20 transition-all flex items-center gap-2"
-                        >
-                            <UploadCloud className="w-5 h-5" /> Contribute / Upload
-                        </button>
                     </div>
                 </div>
             </nav>
@@ -279,44 +206,38 @@ export default function HomePage() {
 
                             <Reveal delay={400}>
                                 <div className="flex flex-wrap gap-4 sm:gap-5 pt-4">
-                                    <Magnetic>
-                                        <button
-                                            onClick={() => scrollToSection('semesters')}
-                                            className="group relative px-8 py-4 bg-transparent rounded-xl font-bold text-white transition-all hover:scale-105 active:scale-95 overflow-hidden w-full sm:w-auto text-center cursor-pointer shadow-xl shadow-blue-500/10"
-                                        >
-                                            <div className="absolute inset-0 animated-border-gradient opacity-100 rounded-xl"></div>
-                                            <div className="absolute inset-[2px] bg-slate-900 rounded-[10px] z-10"></div>
-                                            <div className={`relative z-20 flex items-center justify-center gap-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r ${activeTheme.gradient} transition-all`}>
-                                                <BookOpen className="w-5 h-5 text-white" />
-                                                Start Learning
-                                            </div>
-                                        </button>
-                                    </Magnetic>
+                                    <button
+                                        onClick={() => scrollToSection('semesters')}
+                                        className="group relative px-8 py-4 bg-transparent rounded-xl font-bold text-white transition-all overflow-hidden w-full sm:w-auto text-center cursor-pointer shadow-xl shadow-blue-500/10"
+                                    >
+                                        <div className="absolute inset-0 animated-border-gradient opacity-100 rounded-xl"></div>
+                                        <div className="absolute inset-[2px] bg-slate-900 rounded-[10px] z-10"></div>
+                                        <div className={`relative z-20 flex items-center justify-center gap-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r ${activeTheme.gradient} transition-all`}>
+                                            <BookOpen className="w-5 h-5 text-white" />
+                                            Start Learning
+                                        </div>
+                                    </button>
 
-                                    <Magnetic>
-                                        <button
-                                            onClick={() => scrollToSection('practicals')}
-                                            className="px-8 py-4 glass-card text-white rounded-xl font-bold hover:bg-white/10 transition-all flex items-center justify-center gap-2 border border-white/10 hover:border-white/30 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] active:scale-95 w-full sm:w-auto cursor-pointer"
-                                        >
-                                            <Code className="w-5 h-5" /> Lab Manuals
-                                        </button>
-                                    </Magnetic>
+                                    <button
+                                        onClick={() => scrollToSection('practicals')}
+                                        className="px-8 py-4 glass-card text-white rounded-xl font-bold hover:bg-white/10 transition-all flex items-center justify-center gap-2 border border-white/10 hover:border-white/30 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] w-full sm:w-auto cursor-pointer"
+                                    >
+                                        <Code className="w-5 h-5" /> Lab Manuals
+                                    </button>
 
-                                    <Magnetic>
-                                        <a
-                                            href={UPLOAD_LINK}
-                                            target="_blank"
-                                            rel="noreferrer"
-                                            className="px-8 py-4 glass-card text-white rounded-xl font-bold hover:bg-white/10 transition-all flex items-center justify-center gap-2 border border-white/10 hover:border-white/30 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] active:scale-95 w-full sm:w-auto"
-                                        >
-                                            <UploadCloud className="w-5 h-5" /> Contribute
-                                        </a>
-                                    </Magnetic>
+                                    <a
+                                        href={UPLOAD_LINK}
+                                        target="_blank"
+                                        rel="noreferrer"
+                                        className="px-8 py-4 glass-card text-white rounded-xl font-bold hover:bg-white/10 transition-all flex items-center justify-center gap-2 border border-white/10 hover:border-white/30 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] w-full sm:w-auto cursor-pointer"
+                                    >
+                                        <UploadCloud className="w-5 h-5" /> Contribute
+                                    </a>
                                 </div>
                             </Reveal>
                         </div>
 
-                        {/* Fixed Static Hero Card (No Cursor Tilt) */}
+                        {/* Hero Card Image */}
                         <div className="order-1 md:order-2 relative group w-full">
                             <div className="relative z-10 rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-slate-950">
                                 <div className={`absolute inset-0 bg-gradient-to-br ${activeTheme.gradient} opacity-[0.08]`}></div>
@@ -411,8 +332,8 @@ export default function HomePage() {
                                                 <div className="px-4 sm:px-6 pb-6 sm:pb-8 pt-4 border-t border-white/5 bg-black/20 animate-fade-in-up relative z-10">
                                                     <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-2">
                                                         {sem.subjects.map((sub: Subject, idx) => {
-                                                            const notesUrl = (sub as any).notesUrl;
-                                                            const papersUrl = (sub as any).papersUrl;
+                                                            const notesUrl = (sub as any).notesUrl || (sub as any).notesLink;
+                                                            const papersUrl = (sub as any).papersUrl || (sub as any).papersLink;
 
                                                             return (
                                                                 <div key={idx}
@@ -466,43 +387,40 @@ export default function HomePage() {
                 </section>
 
                 {/* Practicals Section */}
-                <section id="practicals" className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
+                <section id="practicals" className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
                     <div className="text-center mb-10 md:mb-16 space-y-4">
                         <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-white">
-                            Practical Manuals
+                            Lab Manuals
                         </h2>
                         <div className={`h-1.5 w-24 bg-gradient-to-r ${activeTheme.gradient} mx-auto rounded-full`}></div>
                         <p className="text-slate-400 max-w-2xl mx-auto text-base md:text-lg">
-                            Direct access to lab codes, practical guides, and manual repositories.
+                            Comprehensive practical resources featuring code, outputs, and documentation.
                         </p>
                     </div>
 
-                    <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-2">
-                        {PRACTICALS.map((prac: any, idx) => (
+                    <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+                        {PRACTICALS.map((prac, idx) => (
                             <Reveal key={idx} delay={idx * 50}>
-                                <div className="p-5 rounded-2xl glass-card border border-slate-800 hover:border-slate-600 transition-all flex flex-col justify-between group">
-                                    <div className="flex items-start justify-between mb-4">
-                                        <div className="flex items-center gap-3">
-                                            <div className="p-2.5 rounded-xl bg-slate-900 border border-slate-700 text-blue-400">
-                                                <Code className="w-5 h-5" />
-                                            </div>
-                                            <div>
-                                                <h3 className="font-bold text-white text-lg group-hover:text-blue-400 transition-colors">
-                                                    {prac.title || prac.name}
-                                                </h3>
-                                                <p className="text-xs text-slate-400">{prac.subject || prac.category}</p>
-                                            </div>
+                                <div className="glass-card p-5 rounded-xl border border-slate-800 hover:border-slate-600 transition-all flex flex-col justify-between h-full group hover:-translate-y-1">
+                                    <div>
+                                        <div className="w-10 h-10 rounded-lg bg-slate-900 border border-slate-700 flex items-center justify-center text-slate-300 mb-4 group-hover:text-white transition-colors">
+                                            <Code className="w-5 h-5" />
                                         </div>
+                                        <h3 className="font-bold text-white text-base mb-2 group-hover:text-blue-400 transition-colors">
+                                            {prac.name || prac.title}
+                                        </h3>
+                                        {prac.description && (
+                                            <p className="text-xs text-slate-400 line-clamp-2 mb-4">{prac.description}</p>
+                                        )}
                                     </div>
-
                                     <a
-                                        href={prac.url || prac.link || '#'}
+                                        href={prac.link || prac.url}
                                         target="_blank"
                                         rel="noreferrer"
-                                        className="mt-2 w-full py-2 px-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-sm font-semibold flex items-center justify-center gap-2 border border-slate-700 transition-colors"
+                                        className="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs font-semibold text-slate-400 hover:text-white transition-colors group/link"
                                     >
-                                        <span>View Code / Manual</span>
-                                        <ExternalLink className="w-4 h-4" />
+                                        <span>View Files</span>
+                                        <ExternalLink className="w-3.5 h-3.5 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
                                     </a>
                                 </div>
                             </Reveal>
@@ -512,59 +430,79 @@ export default function HomePage() {
 
                 {/* Feedback Section */}
                 <section id="feedback" className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 max-w-3xl mx-auto">
-                    <div className="glass-panel p-8 md:p-10 rounded-2xl border border-slate-800 text-center space-y-6">
-                        <div className="inline-p-3 rounded-2xl bg-blue-500/10 text-blue-400 mx-auto">
-                            <MessageSquare className="w-8 h-8" />
-                        </div>
-                        <h2 className="text-2xl md:text-4xl font-bold text-white">Have Feedback or Suggestions?</h2>
-                        <p className="text-slate-400 text-sm md:text-base max-w-xl mx-auto">
-                            Help us improve the resource portal. Submit missing notes, report broken links, or request new subjects.
-                        </p>
+                    <div className="glass-card p-8 sm:p-12 rounded-3xl border border-slate-800 relative overflow-hidden text-center space-y-6">
+                        <div className={`absolute inset-0 bg-gradient-to-r ${activeTheme.gradient} opacity-5`}></div>
 
-                        <div className="flex flex-col sm:flex-row gap-3 max-w-xl mx-auto pt-2">
+                        <div className="w-12 h-12 rounded-full bg-slate-900 border border-slate-700 flex items-center justify-center mx-auto text-blue-400">
+                            <MessageSquare className="w-6 h-6" />
+                        </div>
+
+                        <div className="space-y-2">
+                            <h2 className="text-2xl md:text-3xl font-black text-white">Community Driven</h2>
+                            <p className="text-slate-400 text-sm md:text-base">
+                                This project thrives on your contributions. Found a bug? Have better notes? Let&apos;s build this together.
+                            </p>
+                        </div>
+
+                        <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto pt-2">
                             <input
                                 type="text"
+                                placeholder="Submit an issue or request..."
                                 value={feedbackMsg}
                                 onChange={(e) => setFeedbackMsg(e.target.value)}
-                                placeholder="Describe your suggestion or issue..."
-                                className="flex-1 px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 transition-colors text-sm"
+                                className="flex-1 bg-slate-900/90 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 transition-colors"
                             />
                             <button
                                 onClick={handleFeedback}
-                                className={`px-6 py-3 rounded-xl bg-gradient-to-r ${activeTheme.gradient} text-white font-bold flex items-center justify-center gap-2 hover:opacity-90 transition-opacity active:scale-95`}
+                                className={`px-6 py-3 rounded-xl font-bold bg-gradient-to-r ${activeTheme.gradient} text-white transition-all hover:opacity-90 flex items-center justify-center gap-2`}
                             >
-                                {feedbackSent ? (
-                                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
-                                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                                    </svg>
-                                ) : (
-                                    <Send className="w-5 h-5" />
-                                )}
-                                <span>{feedbackSent ? 'Sent!' : 'Submit'}</span>
+                                <Send className="w-4 h-4" /> Send
                             </button>
                         </div>
+
+                        {feedbackSent && (
+                            <p className="text-xs text-green-400 font-medium">Redirecting to GitHub issues...</p>
+                        )}
                     </div>
                 </section>
 
-            </main>
+                {/* About / Maintainers Section */}
+                <section id="about" className="py-16 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto text-center border-t border-slate-800/80">
+                    <h2 className="text-2xl md:text-3xl font-bold text-white mb-8">Maintainers & Contributors</h2>
+                    
+                    <div className="grid sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
+                        <div className="glass-card p-6 rounded-2xl border border-slate-800 flex flex-col items-center">
+                            <h3 className="font-bold text-white text-lg">Devendra Ahire</h3>
+                            <p className="text-xs font-mono text-indigo-400 mt-1">Lead Maintainer</p>
+                            <div className="flex items-center gap-4 mt-4">
+                                <a href="https://github.com/Dahire100" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-white transition-colors">
+                                    <Github className="w-5 h-5" />
+                                </a>
+                                <a href="https://www.linkedin.com/in/devendra-ahire" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-white transition-colors">
+                                    <Linkedin className="w-5 h-5" />
+                                </a>
+                            </div>
+                        </div>
 
-            {/* Footer */}
-            <footer id="about" className="border-t border-slate-800 bg-slate-950/80 py-12 px-4 sm:px-6 lg:px-8 relative z-10">
-                <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-                    <div className="flex items-center gap-3">
-                        <Image src={LOGO_URL} alt="KKW Logo" width={32} height={32} className="rounded object-contain" />
-                        <div>
-                            <p className="font-bold text-white">KKW CSD Hub</p>
-                            <p className="text-xs text-slate-500">Built for Computer Science & Design Students</p>
+                        <div className="glass-card p-6 rounded-2xl border border-slate-800 flex flex-col items-center">
+                            <h3 className="font-bold text-white text-lg">Rajan Udapure</h3>
+                            <p className="text-xs font-mono text-indigo-400 mt-1">Maintainer</p>
+                            <div className="flex items-center gap-4 mt-4">
+                                <a href="https://github.com/RajanUdapure" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-white transition-colors">
+                                    <Github className="w-5 h-5" />
+                                </a>
+                                <a href="https://www.linkedin.com/in/rajanudapure" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-white transition-colors">
+                                    <Linkedin className="w-5 h-5" />
+                                </a>
+                            </div>
                         </div>
                     </div>
 
-                    <div className="flex items-center gap-6 text-sm text-slate-400">
-                        <a href={REPO_LINK} target="_blank" rel="noreferrer" className="hover:text-white transition-colors">GitHub Repository</a>
-                        <a href={UPLOAD_LINK} target="_blank" rel="noreferrer" className="hover:text-white transition-colors">Submit Resources</a>
+                    <div className="mt-12 text-xs text-slate-500 font-mono">
+                        KKW CSD Hub © 2026 Open Source Community. Crafted with <Heart className="w-3 h-3 inline text-red-500 mx-1" /> by Devendra & Rajan.
                     </div>
-                </div>
-            </footer>
+                </section>
+            </main>
         </div>
     );
 }

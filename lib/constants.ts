@@ -6,7 +6,8 @@ export const REPO_LINK = "https://github.com/Dahire100/KKW-CSD-Hub.git";
 export const UPLOAD_LINK = "https://drive.google.com/drive/folders/1jIvm8xAytDFvtrgA-MFiuz47Q8vcfaGR";
 
 export const CONTRIBUTOR: Contributor = {
-    name: "Devendra Ahire",
+    name: "Devendra Ahire & Rajan Udapure",
+    role: "Maintainers",
     github: "https://github.com/Dahire100",
     linkedin: "https://www.linkedin.com/in/devendra-ahire"
 };
