@@ -1,5 +1,7 @@
 export interface Subject {
     name: string;
+    notesUrl?: string;
+    papersUrl?: string;
     notesLink?: string;
     papersLink?: string;
 }
@@ -12,14 +14,22 @@ export interface Semester {
 }
 
 export interface Practical {
-    name: string;
-    link: string;
+    name?: string;
+    title?: string;
+    subject?: string;
+    code?: string;
+    sem?: number;
+    description?: string;
+    url?: string;
+    link?: string;
 }
 
 export interface Contributor {
     name: string;
-    github: string;
-    linkedin: string;
+    role?: string;
+    avatar?: string;
+    github?: string;
+    linkedin?: string;
 }
 
 export interface Theme {
