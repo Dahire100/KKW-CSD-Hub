@@ -77,15 +77,16 @@ export const SearchModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () 
             });
         });
 
-        PRACTICALS.forEach(prac => {
+PRACTICALS.forEach(prac => {
     const name = prac.name ?? '';
+    const link = prac.link ?? '#';
 
     if (name.toLowerCase().includes(lowerQuery)) {
         res.push({
             type: 'Lab',
             title: name,
             subtitle: 'Practical Manual & Codes',
-            link: prac.link,
+            link,
             icon: Code
         });
     }
